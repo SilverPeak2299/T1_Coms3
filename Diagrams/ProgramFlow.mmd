@@ -1,0 +1,26 @@
+---
+title: Program Flowchart
+---
+
+flowchart 
+    Settup --> pins([Assign Pins])
+    pins --> var([Assign Variables])
+    var --> startLCD([StartLCD display])
+    startLCD --> motor([Start Motor])
+    motor --> Main
+
+    Main --> rs485([Check RS485])
+    rs485 --> noMsg((No Message))
+    rs485 --> msg((New Message))
+    msg --> updateLED([Update Led Variables])
+    updateLED --> LED([Update Led Position])
+    noMsg --> LED
+    LED --> lcd([Update LCD to BallCount])
+    lcd --> Main
+
+
+    InteruptEntry --> pluscount([BallCount++])
+    pluscount --> servo([Alternate Servo Position])
+
+    InteruptExit --> minuscount([BallCount--])
+
