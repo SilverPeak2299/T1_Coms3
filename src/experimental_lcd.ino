@@ -1,12 +1,15 @@
+/* TODO - adapt to beambreak */
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+//arbitrary - change to whatever is needed
 #define IN_SENS 12
 
 /*system vars*/
 LiquidCrystal_I2C lcd(32,16,2);
 int marble_count = 0;
 
-/*cheeky methods*/
+/*methods*/
 void init_lcd() {
   lcd.setCursor(0,0);
   lcd.print("marbleCt: ");
@@ -26,11 +29,12 @@ void marble_entered() {
 /*main*/
 void setup() { 
   pinMode(IN_SENS, INPUT);
-  
+
+  //lcd boilerplate
   lcd.begin(16,2);
   lcd.init();
   lcd.backlight();
-  Serial.begin(9600);
+  Serial.begin(9600); //?
   
   init_lcd();
   //attachInterrupt(digitalPinToInterrupt(IN_SENS), marble_entered, RISING); //huh??
