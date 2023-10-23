@@ -1,3 +1,6 @@
+/* experimental_lcd.ino
+ * By peter Griffin */
+
 /* TODO - adapt to beambreak */
 
 #include <Wire.h>
@@ -41,7 +44,8 @@ void setup() {
 }
 
 void loop() {
-  //peter griffin
+  //peter griffin writes this
+  //when interrupts work, remove the conditional
   if ( digitalRead(IN_SENS) ) {
     marble_entered();
   }
