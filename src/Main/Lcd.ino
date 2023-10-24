@@ -1,7 +1,6 @@
-// Controlls IC2 LED
+// Functions for IC2 LED
 
 //variables
-extern int marble_count;
 
 void init_lcd() {
   lcd.begin(16,2);

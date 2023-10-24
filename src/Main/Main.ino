@@ -1,19 +1,23 @@
-
 //Main File for the arduino project
 #include <LiquidCrystal_I2C.h>
+#include <Adafruit_NeoPixel.h>
+#include <LinkedList.h>
+
+#define led_count 29 // number od LEDs on LED strip
+#define avg_time 7000 // average time it takes to process a marble in milliseconds
+
 
 // Defining Pins
 #define entry_input 2
 #define exit_input 3
-//function prototypes
-
+#define led_pin 5
 
 // Components
-LiquidCrystal_I2C lcd(0x27,16,2);
+LiquidCrystal_I2C lcd(0x27,16,2); // LCD
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(led_count, led_pin, NEO_GRB + NEO_KHZ800); // LED Strip
 
 // Variables
 int marble_count {0};
-
 
 void setup() {
   //pin settup
@@ -25,24 +29,26 @@ void setup() {
 
   // settup funcitons
   init_lcd(); // Setting up the LCD in lcd.ino
+  led_init();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  
 }
 
 // Interupt Functions
 
 void marble_entry() {
   marble_count++;
- 
+
+  led_add_marble();
   update_lcd();
 }
 
 void marble_exit () {
   marble_count--;
 
+  led_remove_marble();
   update_lcd();
 }
 
