@@ -18,7 +18,7 @@ int marble_count {0};
 void setup() {
   //pin settup
   pinMode(entry_input, INPUT_PULLUP);
-  pinMode(exit_inpit, INPUT_PULLUP);
+  pinMode(exit_input, INPUT_PULLUP);
 
   attachInterrupt(digitalPinToInterrupt(entry_input), marble_entry, RISING);
   attachInterrupt(digitalPinToInterrupt(exit_input), marble_exit, RISING);
