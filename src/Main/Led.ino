@@ -3,6 +3,12 @@ int base_red {50};
 int base_green {50};
 int base_blue {50};
 
+int highlight_red {255};
+int highlight_green {0};
+int highlight_blue {0};
+
+
+
 LinkedList<int> marble_list = LinkedList<int>();
 
 long int last_time;
@@ -38,7 +44,7 @@ void led_update () {
     pixels.setPixelColor(i, pixels.Color(base_red, base_blue, base_red));
 
     if (i < list_size) {
-      pixels.setPixelColor(marble_list.get(i), pixels.Color(255, 0, 0));
+      pixels.setPixelColor(marble_list.get(i), pixels.Color(highlight_red, highlight_green, highlight_blue));
       marble_list.set(i, marble_list.get(i)+1);
 
       if (marble_list.get(i) >= led_count) { led_remove_marble(i); }
