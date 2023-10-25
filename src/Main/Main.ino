@@ -2,6 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <Adafruit_NeoPixel.h>
 #include <LinkedList.h>
+#include <AccelStepper.h>
 
 #define led_count 29 // number od LEDs on LED strip
 #define avg_time 7000 // average time it takes to process a marble in milliseconds
@@ -15,6 +16,7 @@
 // Components
 LiquidCrystal_I2C lcd(0x27,16,2); // LCD
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(led_count, led_pin, NEO_GRB + NEO_KHZ800); // LED Strip
+AccelStepper stepper;
 
 // Variables
 int marble_count {0};
@@ -30,10 +32,11 @@ void setup() {
   // settup funcitons
   init_lcd(); // Setting up the LCD in lcd.ino
   led_init();
+  stepper_init();
 }
 
 void loop() {
-  
+  stepper_update();
 }
 
 // Interupt Functions
