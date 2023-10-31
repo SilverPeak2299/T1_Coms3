@@ -13,13 +13,22 @@
 // Defining Pins
 #define entry_input 2
 #define exit_input 3
-#define led_pin 5
-#define servo_pin 8
+#define led_pin 11
+#define servo_pin 10
+
+
+
+// Stepper Pins
+#define s_1 7
+#define s_2 6
+#define s_3 5
+#define s_4 4
+
 
 // Components
 LiquidCrystal_I2C lcd(0x27,16,2); // LCD
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(led_count, led_pin, NEO_GRB + NEO_KHZ800); // LED Strip
-AccelStepper stepper;
+AccelStepper stepper(AccelStepper::FULL4WIRE, 6, 7, 8, 9);;
 Servo myservo;
 
 // Variables
