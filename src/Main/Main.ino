@@ -42,7 +42,6 @@ void setup() {
 
 void loop() {
   stepper_update();
-  servo_update();
 }
 
 // Interupt Functions
@@ -51,6 +50,7 @@ void marble_entry() {
 
   led_add_marble();
   update_lcd();
+  servo_update();
 }
 
 void marble_exit () {

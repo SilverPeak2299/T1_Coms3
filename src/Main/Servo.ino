@@ -13,7 +13,7 @@ void servo_innit() {
 }
 
 void update_servo() {
-  if (millis() - prev_time < interval) { return; }
+  //if (millis() - prev_time < interval) { return; }
 
   switch (pos) {
     case 0:
