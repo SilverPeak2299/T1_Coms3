@@ -1,6 +1,6 @@
 
-#define pos_0 20
-#define pos_1 80
+#define pos_0 0
+#define pos_1 40
 
 #define interval 500
 
@@ -8,11 +8,12 @@
 unsigned long int prev_time {0};
 byte pos = 0;
 
-void servo_innit() {
+void servo_init() {
+  myservo.attach(servo_pin);
   prev_time = millis();
 }
 
-void update_servo() {
+void servo_update() {
   //if (millis() - prev_time < interval) { return; }
 
   switch (pos) {
