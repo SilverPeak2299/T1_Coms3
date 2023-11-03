@@ -1,11 +1,11 @@
 
-int base_red {50};
-int base_green {50};
-int base_blue {50};
+int base_red {57};
+int base_green {212};
+int base_blue {98};
 
-int highlight_red {255};
-int highlight_green {0};
-int highlight_blue {0};
+int highlight_red {240};
+int highlight_green {12};
+int highlight_blue {54};
 
 
 

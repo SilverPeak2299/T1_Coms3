@@ -7,14 +7,12 @@ void init_lcd() {
   lcd.init();
   lcd.backlight();
   Serial.begin(9600);
-
-  lcd.setCursor(0,0);
-  lcd.print("marbleCt: ");
-  lcd.print( String(marble_count) );
+  update_lcd();
 }
 
 void update_lcd() {
   lcd.setCursor(0,0);
-  lcd.print("marbleCt: ");
+  lcd.print("marbles entered: ");
+  lcd.setCursor(0,1);
   lcd.print( String(marble_count) );
 }
